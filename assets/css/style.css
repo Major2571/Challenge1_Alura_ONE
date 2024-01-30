@@ -1,0 +1,22 @@
+:root {
+  /* Dark Theme */
+  --dark-bg: #13171c;
+  --dark-text: #f6f6f6;
+  --dark-svg-color: #254d65;
+  --dark-btns: #ed9b40;
+
+  /* Light Theme */
+  --light-bg: #b6cbe5;
+  --light-text: #1a2d45;
+  --light-svg-color: #e0e0e0;
+  --light-btns: #1a2d45;
+
+  /* Glass Effect */
+  --glass-effect-bg: linear-gradient(45deg, #ffffff, #ffffff1c);
+  --glass-effect-filter: blur(10px);
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Ubuntu", sans-serif;
+}
