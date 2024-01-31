@@ -2,7 +2,6 @@ svg {
     width: 20%;
     fill: var(--dark-svg-color);
     position: absolute;
-    transition: fill 0.4s;
     z-index: -1;
 }
 
