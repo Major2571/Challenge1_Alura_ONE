@@ -1,0 +1,5 @@
+body.dark-theme{
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
