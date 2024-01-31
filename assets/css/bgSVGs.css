@@ -1,0 +1,39 @@
+svg {
+    width: 20%;
+    fill: var(--dark-svg-color);
+    position: absolute;
+    transition: fill 0.4s;
+    z-index: -1;
+}
+
+#background {
+    left: 0;
+    top: -1vw;
+    width: 25vw;
+    opacity: 0.6;
+}
+
+#dots {
+    width: 15vw;
+    top: 0vw;
+    right: 0vw;
+    opacity: 0.3;
+    animation: fadingdotsanimation 20s infinite alternate ease-in-out;
+}
+
+#bubble {
+    width: 30vw;
+    bottom: 5vh;
+    right: 10vh;
+    opacity: 0.2;
+    transform: scale(1, 1) rotate(45deg);
+}
+
+@keyframes fadingdotsanimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-20px, -25px) rotate(-10deg);
+    }
+}
