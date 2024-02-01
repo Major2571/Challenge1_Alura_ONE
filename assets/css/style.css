@@ -126,7 +126,8 @@ input:checked + .slider:before {
   margin: auto;
 }
 
-.text-code {
+.container-input-area,
+.container-output-area {
   background: linear-gradient(145deg, #ffffff2a, #ffffff48, #ffffff2a);
   backdrop-filter: blur(10px);
   border: solid 1px #fff;
@@ -134,11 +135,11 @@ input:checked + .slider:before {
   width: 100%;
 }
 
-.content {
+.input-area-content {
   padding: 1em;
 }
 
-button {
+.btn {
   border: none;
   background: none;
   cursor: pointer;
@@ -148,7 +149,12 @@ button {
   font-size: 1em;
 }
 
-.btn-criptografar {
+.btn-copy i {
+  color: #f6f6f6 !important;
+  margin-right: 0.5vh;
+}
+
+.btn-encode, .btn-copy {
   background-color: var(--light-btns);
   border-radius: 100px;
   padding: 10px 25px;
@@ -156,16 +162,24 @@ button {
 
 .container-btn {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
   margin-top: 1em;
 }
 
-.btn-empty {
+.output-btn {
+  justify-content: flex-end;
+}
+
+.btn-clear {
   position: absolute;
   right: 1vh;
   top: 1vh;
   font-size: 1.6em;
+}
+
+.btn-microphone {
+  font-size: 1.3em;
 }
 
 .title-speak {
@@ -182,7 +196,28 @@ textarea {
   box-sizing: border-box;
   background: none;
   font-size: 1.1em;
+  margin-bottom: 1em;
   color: #1a2d45;
+}
+
+.input-info-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5vh;
+  position: absolute;
+  bottom: 5vh;
+  opacity: 0.5;
+}
+
+.btn-hidden {
+  display: none;
+}
+
+.output-empty-message {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  opacity: 0.5;
 }
 
 @media (max-width: 1200px) {

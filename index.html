@@ -96,30 +96,76 @@
 
       <section>
         <div class="container">
-          <div class="text-code">
-            <div class="content">
-              <button class="btn-empty">
+          <div class="container-input-area">
+            <div class="input-area-content">
+              <button class="btn btn-clear btn-hidden" onclick="clearText()" id="btnClear">
                 <i class="fa-solid fa-xmark"></i>
               </button>
 
-              <div class="title-speak">
-                <h2>Codificar</h2>
-                <button>
+              <div class="subtitle title-speak">
+                <h2>Criptografar / Descriptografar</h2>
+
+                <button class="btn btn-speak btn-hidden" id="btnSpeak" onclick="speakText('inputText')">
                   <i class="fa-solid fa-volume-high"></i>
                 </button>
               </div>
 
-              <div class="container-text">
+              <div class="input-area-textarea">
                 <textarea
-                  name="texto-criptografia"
-                  id="criptografia"
-                  placeholder="Digite seu texto..."
-                  oninput=""
+                  name="encode-text"
+                  id="inputText"
+                  placeholder="Digite aqui o seu texto para Criptografar ou Descriptografar..."
+                  oninput="verifyEncode()"
                 ></textarea>
               </div>
 
+              <div class="input-info-message">
+                <i class="fa-solid fa-circle-info"></i>
+                <p> A codificação não considera acentos.</p>
+              </div>
+
               <div class="container-btn">
-                <button onclick="" class="btn-criptografar">Codificar</button>
+                <button class="btn btn-microphone" onclick="">
+                  <i class="fa-solid fa-microphone"></i>
+                </button>
+                <button onclick="processText()" class="btn btn-encode" id="btn-encode">
+                  
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-output-area">
+            <div class="input-area-content">
+
+              <div class="subtitle title-speak">
+                <h2>Resultado</h2>
+
+                <button class="btn btn-speak btn-hidden" id="btnSpeakOutput" onclick="speakText('outputText')">
+                  <i class="fa-solid fa-volume-high"></i>
+                </button>
+              </div>
+
+              <div class="output-empty-message" id="outputEmptyMessage">
+                <img src="" alt="">
+                <p>Não há nada aqui</p>
+              </div>
+
+              <div class="output-area-textarea">
+                <textarea
+                  name="encode-text"
+                  id="outputText"
+                  placeholder=""
+                  oninput="verifyEncode()"
+                  disabled
+                ></textarea>
+              </div>
+
+              <div class="container-btn output-btn">
+                <button onclick="copyToClipboard()" class="btn btn-copy">
+                  <i class="fa-regular fa-copy"></i>
+                  Copiar
+                </button>
               </div>
             </div>
           </div>
