@@ -3,3 +3,6 @@ body.dark-theme{
     color: var(--dark-text);
 }
 
+.dark-theme i {
+    color: white;
+}

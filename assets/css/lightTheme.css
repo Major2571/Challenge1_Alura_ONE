@@ -2,3 +2,7 @@ body.light-theme{
     background-color: var(--light-bg);
     color: var(--light-text);
 }
+
+.light-theme i {
+    color: #13171c;
+}
