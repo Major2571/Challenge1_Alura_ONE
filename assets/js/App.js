@@ -1,13 +1,47 @@
+// Constants for input and output text elements, as well as buttons
+const INPUT_TEXT = document.getElementById("inputText");
+const OUTPUT_TEXT = document.getElementById("outputText");
+
+// Constants for buttons
+const BTN_CLEAR = document.querySelector(".btn-clear");
+const BTN_SPEAK = document.getElementById("btnSpeak");
+const BTN_SPEAK_OUTPUT = document.getElementById("btnSpeakOutput");
+const BTN_CODE = document.getElementById("btn-encode");
+
+// Constant for the output empty message element
+const OUTPUT_EMPTY_MESSAGE = document.getElementById("outputEmptyMessage");
+
+// Object mapping vowels to their encoded versions
+const VOWEL_REPLACEMENT = {
+  a: "ai",
+  e: "enter",
+  i: "imes",
+  o: "ober",
+  u: "ufat",
+};
+
+// Object mapping encoded versions to their respective vowels
+const DECODE_VOWEL = {
+  ai: "a",
+  enter: "e",
+  imes: "i",
+  ober: "o",
+  ufat: "u",
+};
+
+// Function to clear input and output text fields
 function clearText() {
-  document.getElementById("inputText").value = "";
-  document.getElementById("outputText").value = "";
+  INPUT_TEXT.value = "";
+  OUTPUT_TEXT.value = "";
   showEmptyMessage();
-  verifyEncode();
+  verifyButtons();
 }
 
+// Function to speak the text
 function speakText(source) {
   let text = document.getElementById(source).value;
 
+  // Check if the browser supports speech synthesis
   if ("speechSynthesis" in window) {
     let speech = new SpeechSynthesisUtterance(text);
     speech.lang = "pt-BR";
@@ -18,125 +52,31 @@ function speakText(source) {
   }
 }
 
+// Function to copy text to clipboard
 function copyToClipboard() {
-  let text = document.getElementById("outputText").value;
+  let text = OUTPUT_TEXT.value;
   navigator.clipboard.writeText(text);
 }
 
-function removeAccents(text) {
-  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
+// Event listener when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", function () {
-  let inputText = document.getElementById("inputText");
-  let btnEncodeDecode = document.getElementById("btn-encode");
-  btnEncodeDecode.innerText = "Codificar";
-
-  inputText.addEventListener("input", function () {
-    let text = inputText.value.toLowerCase();
+  BTN_CODE.innerText = "Codificar";
+  // Add input event listener to toggle button text between 'Encode' and 'Decode'
+  INPUT_TEXT.addEventListener("input", function () {
+    let text = INPUT_TEXT.value.toLowerCase();
     let isEncoded = isEncodedText(text);
 
     if (isEncoded) {
-      btnEncodeDecode.innerText = "Decodificar";
+      BTN_CODE.innerText = "Decodificar";
     }
   });
 });
 
-function verifyEncode() {
-  let inputText = document.getElementById("inputText").value.trim();
-  let outputText = document.getElementById("outputText").value.trim();
-  let btnClear = document.querySelector(".btn-clear");
-  let btnSpeak = document.getElementById("btnSpeak");
-  let btnSpeakOutput = document.getElementById("btnSpeakOutput");
-
-  if (inputText !== "") {
-    btnClear.classList.remove("btn-hidden");
-    btnSpeak.classList.remove("btn-hidden");
-  } else {
-    btnClear.classList.add("btn-hidden");
-    btnSpeak.classList.add("btn-hidden");
-  }
-
-  if (outputText !== "") {
-    btnSpeakOutput.classList.remove("btn-hidden");
-  } else {
-    btnSpeakOutput.classList.add("btn-hidden");
-  }
-}
-
-  
-
+// Function to display empty message if output text is empty
 function showEmptyMessage() {
-  let outputTextArea = document.getElementById("outputText");
-  let outputEmptyMessage = document.getElementById("outputEmptyMessage");
-
-  if (outputTextArea.value.trim() === "") {
-    outputEmptyMessage.style.display = "block";
+  if (OUTPUT_TEXT.value.trim() === "") {
+    OUTPUT_EMPTY_MESSAGE.style.display = "block";
   } else {
-    outputEmptyMessage.style.display = "none";
+    OUTPUT_EMPTY_MESSAGE.style.display = "none";
   }
-}
-
-function processText() {
-  let inputText = document.getElementById("inputText").value;
-
-  let isEncoded = isEncodedText(inputText);
-
-  if (isEncoded) {
-    let decodedTextResult = decodedText(inputText);
-    document.getElementById("outputText").value = decodedTextResult;
-  } else {
-    let inputTextWithoutAccents = removeAccents(inputText.toLowerCase());
-    let encodedTextResult = encodeText(inputTextWithoutAccents);
-    document.getElementById("outputText").value = encodedTextResult;
-  }
-
-  verifyEncode();
-  showEmptyMessage();
-}
-
-document.getElementById("inputText").addEventListener("input", processText);
-
-function encodeText(text) {
-  const VOWEL_REPLACEMENT = {
-    a: "ai",
-    e: "enter",
-    i: "imes",
-    o: "ober",
-    u: "ufat",
-  };
-
-  let encodedText = "";
-
-  for (let i = 0; i < text.length; i++) {
-    let currentChar = text[i];
-    let replacement = VOWEL_REPLACEMENT[currentChar];
-    encodedText += replacement !== undefined ? replacement : currentChar;
-  }
-
-  return encodedText;
-}
-
-function isEncodedText(text) {
-  const ENCODED_CODE = ["ai", "enter", "imes", "ober", "ufat"];
-  return ENCODED_CODE.some((code) => text.includes(code));
-}
-
-function decodedText(text) {
-  const DECODE_VOWEL = {
-    ai: "a",
-    enter: "e",
-    imes: "i",
-    ober: "o",
-    ufat: "u",
-  };
-
-  let decodedText = text;
-
-  for (const code in DECODE_VOWEL) {
-    const regex = new RegExp(code, "g");
-    decodedText = decodedText.replace(regex, DECODE_VOWEL[code]);
-  }
-
-  return decodedText;
 }
