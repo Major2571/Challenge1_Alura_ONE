@@ -27,6 +27,10 @@ h2 {
   font-size: clamp(1.5rem, 4vw, 1.7rem);
 }
 
+p {
+  margin: auto;
+}
+
 .title {
   margin: 5em 0;
 }
@@ -162,14 +166,12 @@ input:checked + .slider:before {
 
 .container-btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-flow: wrap row;
+  gap: 0.5rem;
   width: 100%;
-  margin-top: 1em;
 }
 
-.output-btn {
-  justify-content: flex-end;
-}
 
 .btn-clear {
   position: absolute;
@@ -178,9 +180,6 @@ input:checked + .slider:before {
   font-size: 1.6em;
 }
 
-.btn-microphone {
-  font-size: 1.3em;
-}
 
 .title-speak {
   display: flex;
@@ -200,12 +199,15 @@ textarea {
   color: #1a2d45;
 }
 
-.input-info-message {
+.info-message {
+  justify-content: space-between;
+  padding: auto;
+}
+
+.info-message-text {
   display: flex;
   align-items: center;
   gap: 0.5vh;
-  position: absolute;
-  bottom: 5vh;
   opacity: 0.5;
 }
 
@@ -214,11 +216,21 @@ textarea {
 }
 
 .output-empty-message {
+  margin: auto;
   display: flex;
   align-items: center;
-  position: absolute;
-  opacity: 0.5;
+  gap: 1em;
+  width: auto;
+  text-align: center;
 }
+
+.output-empty-message img{
+  width: 40%;
+}
+
+
+
+
 
 @media (max-width: 1200px) {
   .container {
