@@ -7,6 +7,8 @@ const BTN_CLEAR = document.querySelector(".btn-clear");
 const BTN_SPEAK = document.getElementById("btnSpeak");
 const BTN_SPEAK_OUTPUT = document.getElementById("btnSpeakOutput");
 const BTN_CODE = document.getElementById("btn-encode");
+const BTN_COPY = document.querySelector(".btn-copy");
+
 
 // Constant for the output empty message element
 const OUTPUT_EMPTY_MESSAGE = document.getElementById("outputEmptyMessage");
@@ -61,6 +63,8 @@ function copyToClipboard() {
 // Event listener when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", function () {
   BTN_CODE.innerText = "Codificar";
+  OUTPUT_TEXT.style.display = "none";
+  BTN_COPY.style.display = "none";
   // Add input event listener to toggle button text between 'Encode' and 'Decode'
   INPUT_TEXT.addEventListener("input", function () {
     let text = INPUT_TEXT.value.toLowerCase();
@@ -75,8 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
 // Function to display empty message if output text is empty
 function showEmptyMessage() {
   if (OUTPUT_TEXT.value.trim() === "") {
-    OUTPUT_EMPTY_MESSAGE.style.display = "block";
+    OUTPUT_TEXT.style.display = "none";
+    BTN_COPY.style.display = "none";
+    OUTPUT_EMPTY_MESSAGE.style.display = "flex";
   } else {
     OUTPUT_EMPTY_MESSAGE.style.display = "none";
+    OUTPUT_TEXT.style.display = "block";
+    BTN_COPY.style.display = "";
   }
 }
