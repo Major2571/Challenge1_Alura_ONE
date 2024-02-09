@@ -35,6 +35,7 @@ const DECODE_VOWEL = {
 function clearText() {
   INPUT_TEXT.value = "";
   OUTPUT_TEXT.value = "";
+  BTN_CODE.innerText = "Codificar";
   showEmptyMessage();
   verifyButtons();
 }
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   BTN_CODE.innerText = "Codificar";
   OUTPUT_TEXT.style.display = "none";
   BTN_COPY.style.display = "none";
+
   // Add input event listener to toggle button text between 'Encode' and 'Decode'
   INPUT_TEXT.addEventListener("input", function () {
     let text = INPUT_TEXT.value.toLowerCase();

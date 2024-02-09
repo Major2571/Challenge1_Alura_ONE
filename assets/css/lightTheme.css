@@ -6,3 +6,7 @@ body.light-theme{
 .light-theme i {
     color: #13171c;
 }
+
+.light-theme textarea {
+    color: var(--light-text);
+}

@@ -12,6 +12,7 @@
   --light-btns: #1a2d45;
 }
 
+
 body {
   overflow-x: hidden;
   font-family: "Ubuntu", sans-serif;
@@ -39,7 +40,7 @@ p {
   display: flex;
   align-items: center;
   position: absolute;
-  top: 0;
+  top: 2vh;
   right: 2vh;
   gap: 10px;
 }
@@ -75,7 +76,7 @@ p {
   right: 0;
   bottom: 0;
   background-color: #cccccc00;
-  border: solid 3px #1a2d45;
+  border: solid 3px var(--light-text);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -127,7 +128,7 @@ input:checked + .slider:before {
   justify-items: center;
   align-items: stretch;
   width: 70%;
-  margin: auto;
+  margin: 2rem auto;
 }
 
 .container-input-area,
@@ -148,13 +149,13 @@ input:checked + .slider:before {
   background: none;
   cursor: pointer;
   outline: none;
-  color: #f6f6f6;
+  color: var(--dark-text);
   font-weight: 500;
   font-size: 1em;
 }
 
 .btn-copy i {
-  color: #f6f6f6 !important;
+  color: var(--dark-text) !important;
   margin-right: 0.5vh;
 }
 
@@ -162,6 +163,8 @@ input:checked + .slider:before {
   background-color: var(--light-btns);
   border-radius: 100px;
   padding: 10px 25px;
+  box-shadow: 0 2px 3px #3b3b3b56;
+  text-shadow: 0 2px 3px #3b3b3b56;
 }
 
 .container-btn {
@@ -196,7 +199,6 @@ textarea {
   background: none;
   font-size: 1.1em;
   margin-bottom: 1em;
-  color: #1a2d45;
 }
 
 .info-message {
@@ -219,6 +221,7 @@ textarea {
   margin: auto;
   display: flex;
   align-items: center;
+  flex-direction: row;
   gap: 1em;
   width: auto;
   text-align: center;
@@ -226,6 +229,7 @@ textarea {
 
 .output-empty-message img{
   width: 40%;
+  filter: drop-shadow( -2px 3px 3px #00000056);
 }
 
 
@@ -239,5 +243,14 @@ textarea {
 
   .container {
     width: 85%;
+  }
+
+  .output-empty-message {
+    flex-direction: column-reverse;
+    margin-bottom: 2rem;
+  }
+
+  .output-empty-message img{
+    width: 30%;
   }
 }

@@ -1,8 +1,20 @@
-body.dark-theme{
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
+body.dark-theme {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
 }
 
 .dark-theme i {
-    color: white;
+  color: white;
 }
+
+.dark-theme .btn-encode,
+.dark-theme .btn-copy {
+  background-color: var(--dark-btns);
+  border-radius: 100px;
+  padding: 10px 25px;
+}
+
+.dark-theme textarea {
+  color: #fcfcfc;
+}
+
