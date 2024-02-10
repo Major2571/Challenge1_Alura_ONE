@@ -9,7 +9,6 @@ const BTN_SPEAK_OUTPUT = document.getElementById("btnSpeakOutput");
 const BTN_CODE = document.getElementById("btn-encode");
 const BTN_COPY = document.querySelector(".btn-copy");
 
-
 // Constant for the output empty message element
 const OUTPUT_EMPTY_MESSAGE = document.getElementById("outputEmptyMessage");
 
@@ -90,3 +89,5 @@ function showEmptyMessage() {
     BTN_COPY.style.display = "";
   }
 }
+
+document.getElementById('currentYear').textContent = new Date().getFullYear();

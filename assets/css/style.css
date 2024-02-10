@@ -3,7 +3,7 @@
   --dark-bg: #13171c;
   --dark-text: #f6f6f6;
   --dark-svg-color: #254d65;
-  --dark-btns: #ed9b40;
+  --dark-btns: #e68619;
 
   /* Light Theme */
   --light-bg: #b6cbe5;
@@ -11,7 +11,6 @@
   --light-svg-color: #e0e0e0;
   --light-btns: #1a2d45;
 }
-
 
 body {
   overflow-x: hidden;
@@ -152,6 +151,7 @@ input:checked + .slider:before {
   color: var(--dark-text);
   font-weight: 500;
   font-size: 1em;
+  transition: all .2s ease-in;
 }
 
 .btn-copy i {
@@ -159,7 +159,8 @@ input:checked + .slider:before {
   margin-right: 0.5vh;
 }
 
-.btn-encode, .btn-copy {
+.btn-encode,
+.btn-copy {
   background-color: var(--light-btns);
   border-radius: 100px;
   padding: 10px 25px;
@@ -175,14 +176,12 @@ input:checked + .slider:before {
   width: 100%;
 }
 
-
 .btn-clear {
   position: absolute;
   right: 1vh;
   top: 1vh;
   font-size: 1.6em;
 }
-
 
 .title-speak {
   display: flex;
@@ -227,16 +226,36 @@ textarea {
   text-align: center;
 }
 
-.output-empty-message img{
+.output-empty-message img {
   width: 40%;
-  filter: drop-shadow( -2px 3px 3px #00000056);
+  filter: drop-shadow(-2px 3px 2px #00000056);
+}
+
+footer {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  padding: 2rem;
+  width: 100%;
+  text-align: center;
+
+  border-top: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #0000, #28486f40, #0000);
+}
+
+.footer-social-icons a{
+  font-size: 2rem;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
 }
 
 
 
-
-
 @media (max-width: 1200px) {
+  textarea {
+    height: 20vw;
+  }
   .container {
     grid-template-columns: 1fr;
   }
@@ -250,7 +269,11 @@ textarea {
     margin-bottom: 2rem;
   }
 
-  .output-empty-message img{
+  .output-empty-message img {
     width: 30%;
+  }
+
+  footer {
+    position: relative;
   }
 }

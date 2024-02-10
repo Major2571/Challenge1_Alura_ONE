@@ -22,7 +22,7 @@ svg {
 
 #bubble {
     width: 30vw;
-    bottom: 5vh;
+    bottom: 7vw;
     right: 10vh;
     opacity: 0.2;
     transform: scale(1, 1) rotate(45deg);

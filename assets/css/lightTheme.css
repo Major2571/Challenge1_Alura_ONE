@@ -1,12 +1,22 @@
-body.light-theme{
-    background-color: var(--light-bg);
-    color: var(--light-text);
+body.light-theme {
+  background-color: var(--light-bg);
+  color: var(--light-text);
 }
 
 .light-theme i {
-    color: #13171c;
+  color: #13171c;
 }
 
 .light-theme textarea {
-    color: var(--light-text);
+  color: var(--light-text);
+}
+
+.light-theme .btn-encode:hover,
+.light-theme .btn-copy:hover {
+  background-color: #254d65;
+}
+
+.light-theme .footer-social-icons a i:hover {
+  color: #254d65;
+  transition: all 0.3s ease-in-out;
 }

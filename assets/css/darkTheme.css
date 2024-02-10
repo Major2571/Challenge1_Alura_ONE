@@ -14,7 +14,18 @@ body.dark-theme {
   padding: 10px 25px;
 }
 
+.dark-theme .btn-encode:hover,
+.dark-theme .btn-copy:hover {
+  background-color: #ce730b;
+}
+
 .dark-theme textarea {
   color: #fcfcfc;
 }
+
+.dark-theme .footer-social-icons a i:hover {
+  color: var(--dark-btns);
+  transition: all 0.3s ease-in-out;
+}
+
 
