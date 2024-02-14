@@ -90,4 +90,23 @@ function showEmptyMessage() {
   }
 }
 
+function changeTextareaHeightDynamically(){
+    if (window.matchMedia("(max-width:1020px)").matches) {
+        INPUT_TEXT.style.height = "";
+        INPUT_TEXT.style.height = INPUT_TEXT.scrollHeight + "px";
+        OUTPUT_TEXT.style.height = "";
+        OUTPUT_TEXT.style.height = OUTPUT_TEXT.scrollHeight + "px";
+    }
+    else {
+        INPUT_TEXT.style.height = "";
+        OUTPUT_TEXT.style.height = "";
+    }
+}
+
+INPUT_TEXT.oninput = changeTextareaHeightDynamically;
+OUTPUT_TEXT.oninput = changeTextareaHeightDynamically;
+window.addEventListener('resize', function(event) {
+  changeTextareaHeightDynamically();
+}, true);
+
 document.getElementById('currentYear').textContent = new Date().getFullYear();
