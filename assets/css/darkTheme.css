@@ -3,6 +3,21 @@ body.dark-theme {
   color: var(--dark-text);
 }
 
+.dark-theme::-webkit-scrollbar {
+  width: 5px; 
+  height: 10px;
+}
+
+
+.dark-theme::-webkit-scrollbar-thumb {
+  background-color: var(--light-text);
+  border-radius: 5px; 
+}
+
+.dark-theme::-webkit-scrollbar-track {
+  background-color:  var(--dark-bg); 
+}
+
 .dark-theme i {
   color: white;
 }

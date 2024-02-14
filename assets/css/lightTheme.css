@@ -3,6 +3,20 @@ body.light-theme {
   color: var(--light-text);
 }
 
+.light-theme::-webkit-scrollbar {
+  width: 5px; 
+  height: 10px;
+}
+
+.light-theme::-webkit-scrollbar-thumb {
+  background-color: #8aa5b6; /* Cor de fundo do thumb */
+  border-radius: 5px; /* Cantos arredondados do thumb */
+}
+
+.light-theme::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Cor de fundo da track */
+}
+
 .light-theme i {
   color: #13171c;
 }
