@@ -12,6 +12,8 @@ const BTN_COPY = document.querySelector(".btn-copy");
 // Constant for the output empty message element
 const OUTPUT_EMPTY_MESSAGE = document.getElementById("outputEmptyMessage");
 
+const MODAL = document.getElementById("myModal");
+
 // Object mapping vowels to their encoded versions
 const VOWEL_REPLACEMENT = {
   a: "ai",
@@ -57,7 +59,27 @@ function speakText(source) {
 // Function to copy text to clipboard
 function copyToClipboard() {
   let text = OUTPUT_TEXT.value;
-  navigator.clipboard.writeText(text);
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      showCopiedModal(); // Exibe o modal após o texto ser copiado com sucesso
+    })
+    .catch((error) => {
+      console.error(
+        "Erro ao copiar texto para a área de transferência:",
+        error
+      );
+    });
+}
+
+function showCopiedModal() {
+  MODAL.style.display = "flex";
+
+  const displayTime = 1200;
+
+  setTimeout(() => {
+    MODAL.style.display = "none";
+  }, displayTime);
 }
 
 // Event listener when the DOM content is loaded
@@ -90,23 +112,26 @@ function showEmptyMessage() {
   }
 }
 
-function changeTextareaHeightDynamically(){
-    if (window.matchMedia("(max-width:1020px)").matches) {
-        INPUT_TEXT.style.height = "";
-        INPUT_TEXT.style.height = INPUT_TEXT.scrollHeight + "px";
-        OUTPUT_TEXT.style.height = "";
-        OUTPUT_TEXT.style.height = OUTPUT_TEXT.scrollHeight + "px";
-    }
-    else {
-        INPUT_TEXT.style.height = "";
-        OUTPUT_TEXT.style.height = "";
-    }
+function changeTextareaHeightDynamically() {
+  if (window.matchMedia("(max-width:1020px)").matches) {
+    INPUT_TEXT.style.height = "";
+    INPUT_TEXT.style.height = INPUT_TEXT.scrollHeight + "px";
+    OUTPUT_TEXT.style.height = "";
+    OUTPUT_TEXT.style.height = OUTPUT_TEXT.scrollHeight + "px";
+  } else {
+    INPUT_TEXT.style.height = "";
+    OUTPUT_TEXT.style.height = "";
+  }
 }
 
 INPUT_TEXT.oninput = changeTextareaHeightDynamically;
 OUTPUT_TEXT.oninput = changeTextareaHeightDynamically;
-window.addEventListener('resize', function(event) {
-  changeTextareaHeightDynamically();
-}, true);
+window.addEventListener(
+  "resize",
+  function (event) {
+    changeTextareaHeightDynamically();
+  },
+  true
+);
 
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+document.getElementById("currentYear").textContent = new Date().getFullYear();
