@@ -38,11 +38,11 @@ O principal objetivo do desafio era criar um aplicativo capaz de criptografar e 
 -   **Botão de Voz**: Permite que o aplicativo fale o texto em voz alta, proporcionando acessibilidade.
 -   **Modos de Tema**: Os modos claro e escuro foram implementados para oferecer uma experiência visual personalizada.
 
-Essas funcionalidades proporcionam uma experiência completa ao usuário, tornando o Decodificador de Texto uma ferramenta versátil e intuitiva para criptografar e descriptografar texto de maneira eficiente e amigável.
+Essas funcionalidades proporcionam uma experiência completa ao usuário, tornando o Codificador de Texto uma ferramenta versátil e intuitiva para criptografar e descriptografar texto de maneira eficiente e amigável.
 
 ### Aprendizado e Desafios Encontrados
 
 Durante o desenvolvimento do projeto, pode-se enfrentar desafios relacionados à lógica de programação, manipulação de strings, gerenciamento de eventos do usuário e estilização da interface do usuário. Além disso, a implementação de funcionalidades extras, como modos de tema e interação por voz, proporcionou oportunidades adicionais de aprendizado e exploração de tecnologias.
 
 ## Conclusão
-O projeto do Decodificador de Texto não apenas cumpre os requisitos do desafio, mas também proporciona uma experiência interativa e amigável para o usuário. Ao explorar as funcionalidades e os desafios encontrados durante o desenvolvimento, os participantes puderam aprimorar suas habilidades técnicas e criativas, contribuindo para seu crescimento profissional e pessoal no campo do desenvolvimento web.
+O projeto do Codificador de Texto não apenas cumpre os requisitos do desafio, mas também proporciona uma experiência interativa e amigável para o usuário. Ao explorar as funcionalidades e os desafios encontrados durante o desenvolvimento, os participantes puderam aprimorar suas habilidades técnicas e criativas, contribuindo para seu crescimento profissional e pessoal no campo do desenvolvimento web.
